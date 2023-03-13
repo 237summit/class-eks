@@ -1,4 +1,5 @@
 # Public에 Bastion Instance 생성
+# https://developer.hashicorp.com/terraform/language/functions/coalesce
 resource "aws_instance" "bastion" {
   ami                    = coalesce(data.aws_ami.amzlinux2.id, var.image_id)
   instance_type          = "t2.micro"
